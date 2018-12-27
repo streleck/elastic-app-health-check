@@ -1,0 +1,31 @@
+<%- include('head.ejs') %>
+  <div class="main">
+    <% if (apps.length === 0) { %>
+      <h2>There are no apps being monitored.</h2>
+    <% } else { %>
+      <h1>ELK App Overview</h1>
+      <table>
+        <thead>
+          <th>App Name</th>
+          <th>Version</th>
+          <th>URL</th>
+          <th>Last GET</th>
+          <th>Last POST</th>
+          <th>Last Check At</th>
+        </thead>
+        <tbody>
+          <% apps.forEach((app) => { %>
+            <tr id=<%= app.id %>>
+              <td><%= app.name %></td>
+              <td><%= app.version %></td>
+              <td><%= app.url %></td>
+              <td class=<%= app.get === 'success' ? 'success' : app.get === 'no tests completed' ? '' : 'error' %>><%= app.get %></td>
+              <td class=<%= app.post === 'success' ? 'success' : app.post === 'no tests completed' ? '' : 'error' %>><%= app.post %></td>
+              <td><%= app.lastTest %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+<%- include('end.ejs') %>

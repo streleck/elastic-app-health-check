@@ -1,0 +1,20 @@
+<%- include('head.ejs') %>
+  <h1>Monitor a new app</h1>
+  <div class="main">
+    <form action="/add" method="POST">
+      <div>
+          <label for="name">App name:</label>
+          <input type="text" name="name" id="name"> 
+      </div>
+      <div>
+          <label for="url">App url:</label>
+          <input type="text" name="url" id="url"> 
+      </div>
+      <div>
+          <label for="email">Email to:</label>
+          <input type="text" name="email" id="email" placeholder="separate by comma"> 
+      </div>
+      <button class="btn" type="submit">Monitor App</button>
+    </form>
+  </div>
+  <%- include('end.ejs') %>

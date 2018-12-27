@@ -1,0 +1,43 @@
+body {
+  background-color: royalblue;
+}
+h1 {
+  color: gold;
+  text-align: center;
+  margin-top: 50px;
+  text-shadow: 1px 1px black;
+}
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  box-shadow: 1px 1px 1px black;
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  max-height: 500px;
+  overflow: auto;
+}
+tr, th, td {
+  border: 1px solid black;
+  padding: 10px 20px 10px 20px;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #ddd;
+}
+
+td.success {
+  background-color: lightgreen;
+}
+
+td.error {
+  background-color: #f88
+}
+
+tbody>tr:hover { 
+  background-color: lightyellow;
+  cursor: pointer;
+}
+

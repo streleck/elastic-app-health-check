@@ -1,0 +1,62 @@
+<%- include('head.ejs') %>
+  <div class="main">
+    <div class="billboard">
+      <h3>name:</h3><h2><%= displayName %></h2>
+      <br/>
+      <h3>url:&nbsp;</h3><p><%= url %></p><br/>
+      <h3>emails to:&nbsp;</h3><p><%= emails %></p><br/>
+      <a class="overview-link" href="/">< Back to Apps Overview</a>
+    </div>
+  
+    <div class="tables-container">
+      <div>
+        <h2 class="table-title">Get Checks</h2>
+        <table>
+          <thead>
+            <th>Time</th>
+            <th>Status</th>
+          </thead>
+          <div class="table-container">
+          <tbody>
+          <% getChecks.forEach((getCheck) => { %>
+            <tr class=<%= getCheck.wasSuccessful ? 'success' : 'error' %>>
+              <td><%= getCheck.time %></td>
+              <td>
+                <% if (!getCheck.wasSuccessful) { %>
+                  <!-- <a href=<%= '/detail/' + appId + '/error/' + getCheck.id %>><%= getCheck.error %></a> -->
+                  <%= getCheck.error %>
+                <% } else { %> success <% } %>
+              </td>
+            </tr>
+          <% }) %>
+          </tbody>
+        </div>
+        </table>
+      </div>
+
+      <div>
+        <h2 class="table-title">Post Checks</h2>
+        <table>
+          <thead>
+            <th>Time</th>
+            <th>Error</th>
+          </thead>
+          <tbody>
+          <div class="table-container">
+          <% postChecks.forEach((postCheck) => { %>
+            <tr class="<%= postCheck.wasSuccessful ? 'success' : 'error' %>">
+              <td><%= postCheck.time %></td>
+              <td>
+                <% if (!postCheck.wasSuccessful) { %>
+                  <a href=<%= '/detail/' + appId + '/error/' + postCheck.id %>><%= postCheck.error %></a>
+                  <% } else { %> success <% } %>
+              </td>
+            </tr>
+          <% }) %>
+          </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<%- include('end.ejs') %>
