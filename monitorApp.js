@@ -69,14 +69,14 @@ module.exports = function(appRecord){
   };
 
   // Set up an initial 'put' to test later for data fidelity
-  // axios({
-  //   method:'put',
-  //   url: appRecord.url + '/tests/_doc/1',
-  //   data: {"fidelityTest": "ChesapeakeScooter"},
-  //   headers: {'Content-Type':'application/json'},
-  //   httpsAgent: agent 
-  // })
-  // .then(function(response) {
+  axios({
+    method:'put',
+    url: appRecord.url + '/tests/_doc/1',
+    data: {"fidelityTest": "ChesapeakeScooter"},
+    headers: {'Content-Type':'application/json'},
+    httpsAgent: agent 
+  })
+  .then(function(response) {
     // If successful, start a testing interval on that url
     let monitor = setInterval(function(){
       // Get most recent status of app
@@ -155,17 +155,17 @@ module.exports = function(appRecord){
           })
         }
       });
-    }, (1000 * 20));
-  // })
-  // // Initial put has failed, email about the failure
-  // .catch(function(error) {
-  //   //console.log('initial fail ', error);
-  //   console.log('initial fail');
-  //   sendEmails(
-  //     'app is not functioning',
-  //     'This app was not successful in an initial PUT test and will not continue to be tested.'
-  //     + '\n\n' //+ error
-  //   );
-  // });
+    }, (1000 * 60 * 5));
+  })
+  // Initial put has failed, email about the failure
+  .catch(function(error) {
+    //console.log('initial fail ', error);
+    console.log('initial fail');
+    sendEmails(
+      'app is not functioning',
+      'This app was not successful in an initial PUT test and will not continue to be tested.'
+      + '\n\n' //+ error
+    );
+  });
 }
 
