@@ -105,7 +105,7 @@ module.exports = function(appRecord){
                 'After having previously failed a POST attempt, this app has now successfully accepted a POST.'
               );
             }
-            logPostCheck(true, {});
+            logPostCheck(true, 'success');
           })
           .catch(function(error) {
             //console.log('POST fail!!!!! \n', error);
@@ -132,7 +132,7 @@ module.exports = function(appRecord){
                 'has failed a data fidelity check',
                 'This app was successfully able to return data from a GET request, but that data did not match what was expected.'
               );
-              logGetCheck(false, {});
+              logGetCheck(false, 'Data fidelity failure.');
             }
             else{
               if(getStatus === false){
@@ -141,7 +141,7 @@ module.exports = function(appRecord){
                   'After having previously failed a GET attempt, this app has now successfully accepted a GET and returned the expected data.'
                 );
               }
-              logGetCheck(true, {});
+              logGetCheck(true, 'success');
             }
           })
           .catch(function(error) {
