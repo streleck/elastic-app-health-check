@@ -19,6 +19,7 @@ module.exports = (req, res, next) => {
       });
     }
     else {
+      monitorApp(doc);
       res.redirect('/');
     }
   });
