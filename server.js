@@ -9,7 +9,7 @@ const app = express();
 const monitorApp = require('./monitorApp');
 
 //mongoose.connect("mongodb://localhost/es-app-health-check");
-mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 //mongoose.connect("mongodb://heroku_spscw08h:5k2lr31jtfhrv86kpn9kdh1eum@ds021701.mlab.com:21701/heroku_spscw08h");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
