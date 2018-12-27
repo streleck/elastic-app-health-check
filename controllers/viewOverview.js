@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
           url: doc.displayUrl,
           get: doc.getChecks.length === 0 ? 'no tests completed' : doc.getChecks[doc.getChecks.length -1].wasSuccessful ? 'success' : 'error',
           post: doc.postChecks.length === 0 ? 'no tests completed' : doc.postChecks[doc.postChecks.length -1].wasSuccessful ? 'success' : 'error',
-          lastTest: doc.getChecks.length === 0 ? '' : moment(doc.postChecks[doc.postChecks.length -1].timestamp).format('lll')
+          lastTest: doc.getChecks.length === 0 ? '' : moment(doc.postChecks[doc.postChecks.length -1].timestamp).format('lll'),
           id: doc._id
         });
       }
