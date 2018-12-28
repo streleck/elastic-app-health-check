@@ -7,7 +7,9 @@ const viewDetail = require('./controllers/viewDetail');
 const viewGetError = require('./controllers/viewGetError');
 const viewPostError = require('./controllers/viewPostError');
 const viewAddApp = require('./controllers/viewAddApp');
+
 const addApp = require('./controllers/addApp');
+const addEmailRecipient = require('./controllers/addEmailRecipient');
 
 const router = express.Router();
 
@@ -18,6 +20,7 @@ router.get('/details/:id/postError/:errorIndex', viewPostError);
 router.get('/details/:id', viewDetail);
 router.get('/add', viewAddApp);
 
-router.post('/add', addApp)
+router.post('/add', addApp);
+router.post('/addEmail', addEmailRecipient);
 
 module.exports = router;

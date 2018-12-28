@@ -39,7 +39,7 @@ module.exports = (req, res, next) => {
         appId: doc._id,
         displayName: doc.displayName,
         url: doc.url,
-        emails: doc.emails,
+        emails: doc.emails.join(', '),
         getChecks: formattedGetChecks,
         postChecks: formattedPostChecks
       })

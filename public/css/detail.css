@@ -64,3 +64,6 @@ tr.error {
   max-height: 300px;
   overflow: auto;
 }
+#add-email-form {
+  display: none;
+}
