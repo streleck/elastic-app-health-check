@@ -56,7 +56,8 @@
               <td><%= postCheck.time %></td>
               <td>
                 <% if (!postCheck.wasSuccessful) { %>
-                  <a href=<%= '/detail/' + appId + '/error/' + postCheck.id %>><%= postCheck.error %></a>
+                  <!-- <a href=<%= '/detail/' + appId + '/error/' + postCheck.id %>><%= postCheck.error %></a> -->
+                  <%= postCheck.error %>
                   <% } else { %> success <% } %>
               </td>
             </tr>

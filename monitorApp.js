@@ -159,13 +159,13 @@ module.exports = function(appRecord){
   })
   // Initial put has failed, email about the failure
   .catch(function(error) {
-    //console.log('initial fail ', error);
     console.log('initial fail');
     sendEmails(
       'app is not functioning',
       'This app was not successful in an initial PUT test and will not continue to be tested.'
       + '\n\n' //+ error
     );
+    logGetCheck(false, 'Initial test failed. App not monitored until next restart');
   });
 }
 
