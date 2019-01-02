@@ -14,7 +14,11 @@ module.exports = (req, res, next) => {
     }
     else{
       let formattedGetChecks = [];
+      let totalFails = 0;
       doc.getChecks.forEach((check) => {
+        if(!check.wasSuccessful){
+          totalFails++;
+        }
         let formattedCheck = {
           id: check._id,
           wasSuccessful: check.wasSuccessful,
@@ -41,7 +45,8 @@ module.exports = (req, res, next) => {
         url: doc.url,
         emails: doc.emails.join(', '),
         getChecks: formattedGetChecks,
-        postChecks: formattedPostChecks
+        postChecks: formattedPostChecks,
+        totalFails: totalFails
       })
     }
   });
